@@ -1,9 +1,31 @@
 // BUDGET CONTROLLER
 var budgetController = (function(){
 
+    var Expense = function(id, description, value){
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
+
+    var Income = function(id, description, value){
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
+
+
+    var data = {
+        allItems: {
+            exp: [],
+            inc: []
+        },
+        totals: {
+            exp: 0,
+            inc: 0
+        }
+    }
 
 })();
-
 
 // UI CONTROLLER
 var UIController = (function(){
@@ -29,8 +51,6 @@ var UIController = (function(){
     }
 
 })();
-
-
 // GLOBAL APP CONTROLLER
 var controller = (function(budgetCtrl, UICtrl){
 
@@ -50,7 +70,7 @@ var controller = (function(budgetCtrl, UICtrl){
 
     var ctrlAddItem = function(){
 
-        // 1. Get the field input data
+       // 1. Get the field input data
         var input = UICtrl.getInput();
         // 2. Add the item to the budget controller
 
@@ -72,34 +92,6 @@ var controller = (function(budgetCtrl, UICtrl){
 })(budgetController, UIController);
 
 controller.init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
